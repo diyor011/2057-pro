@@ -1,8 +1,15 @@
 import React from 'react'
+import Sidebar from './components/Sidebar'
+import HourPage from './pages/HourPage'
+
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+
+ <Sidebar/>
+<HourPage/>
+    </div>
   )
 }
 
