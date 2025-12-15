@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './components/Navbar.jsx'
-import Weather from './Wether'
+import Weather from './pages/Wether.jsx'
 
 const App = () => {
   return (
