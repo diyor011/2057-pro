@@ -10,11 +10,7 @@ const App = () => {
   return (
     <div>
       <Navbar/>
-            <Weather/>  
-            <TodoList/>
              <Sidebar/>
-             
-<HourPage/>
     </div>
 
 
