@@ -1,10 +1,24 @@
 import React from 'react'
-import StaffTable from "./components/StaffTable"
+import Navbar from './components/Navbar.jsx'
+import Weather from './pages/Wether.jsx'
+import TodoList from './pages/Todolist.jsx'
+import Sidebar from './components/Sidebar'
+import HourPage from './pages/HourPage'
+import { Outlet } from 'react-router-dom'
+
 
 const App = () => {
   return (
-    <div className='App'> 
-      <StaffTable/>
+    <div>
+      <Navbar/>
+    
+        <section className='flex h-fullr w-full '>
+
+             <Sidebar/>
+               <Outlet/>
+        </section>
+             
+
     </div>
   )
 }
