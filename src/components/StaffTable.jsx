@@ -1,5 +1,12 @@
 
 import React, { useState, useEffect } from "react";
+import shifu from "../assets/diyor.jpg"
+import sharabara from "../assets/karomi.jpg"
+import xondamir from "../assets/xondamir.jpg";
+import muhammadali from "../assets/muhammadali.jpg";
+import sarvar from "../assets/sarvar.jpg";
+import ibrohim from "../assets/ibrohim.jpg";
+import muhammadamin from "../assets/muhammadamin.jpg";
 
 const initialStaff = [
   {
@@ -7,193 +14,69 @@ const initialStaff = [
     position: "CEO & Founder",
     description:
       "Kompaniya asoschisi va rahbari. Strategik rivojlanish uchun mas'ul.",
-    image: "/assets/diyor.jpg",
+    image: shifu,
   },
   {
     name: "Karomi",
     position: "Chief Technology Officer",
     description: "Texnologiya va innovatsiyalar bo'limi rahbari.",
-    image: "/assets/karomi.jpg",
+    image: sharabara,
   },
   {
     name: "Xondamir",
     position: "Lead Developer",
     description: "Dasturiy ta'minot ishlab chiqish jamoasi rahbari.",
-    image: "/assets/xondamir.jpg",
+    image: xondamir,
   },
   {
     name: "Muhammadali",
     position: "Senior Developer",
     description: "Backend va frontend ishlab chiqishda tajribali dasturchi.",
-    image: "/assets/muhammadali.jpg",
+    image: muhammadali,
   },
   {
     name: "Sarvar",
     position: "Designer",
     description:
       "UI/UX dizayner, mahsulotlarning chiroyli ko'rinishini ta'minlaydi.",
-    image: "/assets/sarvar.jpg",
+    image: sarvar,
   },
   {
     name: "Ibrohim",
     position: "Project Manager",
     description:
       "Loyihalarni boshqarish va muddatlarda yetkazib berish uchun mas'ul.",
-    image: "/assets/ibrohim.jpg",
+    image: ibrohim,
   },
   {
     name: "Muhammadamin",
     position: "Project Manager",
     description:
       "Loyihalarni boshqarish va muddatlarda yetkazib berish uchun mas'ul.",
-    image: "/assets/muhammadamin.jpg",
+    image: muhammadamin,
   },
 ];
 
 const StaffTable = () => {
-  const [staffMembers, setStaffMembers] = useState([]);
-  const [filteredStaff, setFilteredStaff] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [loginData, setLoginData] = useState({ username: "", password: "" });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingMember, setEditingMember] = useState(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    position: "",
-    description: "",
-    image: "",
-  });
 
 
-  useEffect(() => {
-    const saved = localStorage.getItem("staffMembers");
-    if (saved && saved !== "undefined" && saved !== "null") {
-      try {
-        const parsed = JSON.parse(saved);
-        setStaffMembers(parsed);
-        setFilteredStaff(parsed);
-      } catch (e) {
-        setStaffMembers(initialStaff);
-        setFilteredStaff(initialStaff);
-        localStorage.setItem("staffMembers", JSON.stringify(initialStaff));
-      }
-    } else {
-      setStaffMembers(initialStaff);
-      setFilteredStaff(initialStaff);
-      localStorage.setItem("staffMembers", JSON.stringify(initialStaff));
-    }
-  }, []);
 
-  // Har o'zgarishda saqlash
-  useEffect(() => {
-    if (staffMembers.length > 0) {
-      localStorage.setItem("staffMembers", JSON.stringify(staffMembers));
-    }
-  }, [staffMembers]);
 
-  // Qidiruv
-  useEffect(() => {
-    const filtered = staffMembers.filter((member) =>
-      member.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredStaff(filtered);
-  }, [searchTerm, staffMembers]);
+  
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (loginData.username === "admin" && loginData.password === "123") {
-      setIsLoggedIn(true);
-      setShowLoginModal(false);
-      setLoginData({ username: "", password: "" });
-    } else {
-      alert("Noto'g'ri login yoki parol!");
-    }
-  };
 
-  const handleLogout = () => setIsLoggedIn(false);
 
-  const openModal = (member = null) => {
-    setEditingMember(member);
-    if (member) {
-      setFormData({ ...member });
-    } else {
-      setFormData({ name: "", position: "", description: "", image: "" });
-    }
-    setIsModalOpen(true);
-  };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData({ ...formData, image: reader.result });
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const updatedMember = {
-      name: formData.name.trim(),
-      position: formData.position.trim(),
-      description: formData.description.trim(),
-      image: formData.image || "https://via.placeholder.com/150?text=No+Image",
-    };
 
-    if (editingMember) {
-      setStaffMembers(
-        staffMembers.map((m) =>
-          m.name === editingMember.name ? updatedMember : m
-        )
-      );
-    } else {
-      setStaffMembers([...staffMembers, updatedMember]);
-    }
-    setIsModalOpen(false);
-  };
-
-  const handleDelete = (name) => {
-    if (window.confirm(`${name} ni o'chirishni xohlaysizmi?`)) {
-      setStaffMembers(staffMembers.filter((m) => m.name !== name));
-    }
-  };
-
-  const clearImage = () => setFormData({ ...formData, image: "" });
 
   return (
     <div className="container mx-auto p-4 sm:p-8 min-h-screen bg-base-200">
-      <div className="navbar bg-base-100 mb-6 shadow rounded-box">
-        <div className="flex-1 px-4">
-          <h1 className="text-2xl font-bold">Ordinary</h1>
-        </div>
-        <div className="flex items-center gap-3 px-4">
-          <input
-            type="text"
-            placeholder="Qidiruv..."
-            className="input input-bordered input-sm w-full max-w-xs"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          {!isLoggedIn ? (
-            <button
-              onClick={() => setShowLoginModal(true)}
-              className="btn btn-outline btn-sm"
-            >
-              Admin Login
-            </button>
-          ) : (
-            <button onClick={handleLogout} className="btn btn-outline btn-sm">
-              Logout
-            </button>
-          )}
-        </div>
-      </div>
-
       <div className="overflow-x-auto shadow-lg rounded-box">
         <table className="table table-zebra w-full">
           <thead>
@@ -207,7 +90,7 @@ const StaffTable = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredStaff.map((member, index) => (
+            {initialStaff.map((member, index) => (
               <tr key={index} className="hover">
                 <th className="text-center">{index + 1}</th>
                 <td>
@@ -259,7 +142,6 @@ const StaffTable = () => {
         </div>
       )}
 
-
       {showLoginModal && (
         <div className="modal modal-open">
           <div className="modal-box">
@@ -303,7 +185,6 @@ const StaffTable = () => {
         </div>
       )}
 
-  
       {isModalOpen && (
         <div className="modal modal-open">
           <div className="modal-box">
