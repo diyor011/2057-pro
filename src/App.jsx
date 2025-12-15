@@ -13,6 +13,7 @@ const App = () => {
             <Weather/>  
             <TodoList/>
              <Sidebar/>
+             
 <HourPage/>
     </div>
 
