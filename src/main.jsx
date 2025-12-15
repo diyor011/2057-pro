@@ -1,14 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
 import Weather from "./pages/Wether.jsx";
 import TodoList from "./pages/Todolist.jsx";
 import HourPage from "./pages/HourPage.jsx";
+import StaffTable from "./components/StaffTable.jsx"
 
 const router = createBrowserRouter([
   {
@@ -26,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "hour",
         element : <HourPage/>
+      },
+       {
+        path: "staff",
+        element : <StaffTable/>
       }
     ]
   },
