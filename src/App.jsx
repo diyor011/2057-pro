@@ -1,9 +1,13 @@
-import React from 'react'
 
-const App = () => {
+import React from "react";
+import StaffTable from "./components/StaffTable";
+
+function App() {
   return (
-    <div>App</div>
-  )
+    <div className="App">
+      <StaffTable />
+    </div>
+  );
 }
 
-export default App
+export default App;
