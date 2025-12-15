@@ -1,13 +1,12 @@
+import React from 'react'
+import StaffTable from "./components/StaffTable"
 
-import React from "react";
-import StaffTable from "./components/StaffTable";
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <StaffTable />
+    <div className='App'> 
+      <StaffTable/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
