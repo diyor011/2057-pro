@@ -45,13 +45,14 @@ export default function TodoList() {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #0f0f0f, #1a1a1a)",
+     
         display: "flex",
         justifyContent: "center",
         paddingTop: "80px",
         fontFamily: "Arial",
         color: "white",
       }}
+      className="w-full"
     >
       <div
         style={{
