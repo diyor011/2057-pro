@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import HourPage from '../pages/HourPage'
 
 const Sidebar = () => {
     return (
@@ -16,8 +18,12 @@ const Sidebar = () => {
                     <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-base-200 h-full w-80 p-4">
                         {/* Sidebar content here */}
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <Link to="/hour"><li>Hour Page</li></Link>
+                        <Link to="/converter"><li>Currency Converter</li></Link>
+                        <Link to="/staff"><li>Staff Table</li></Link>
+                        <Link to="/todo"><li>Todo List</li></Link>
+                        <Link to="/weather"><li>Weather</li></Link>
+                        
                     </ul>
                 </div>
             </div>
