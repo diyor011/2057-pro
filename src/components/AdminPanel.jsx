@@ -54,7 +54,7 @@ const AdminPanel = ({ staffMembers, setStaffMembers }) => {
 
   return (
     <>
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6 ">
         <h2 className="text-2xl font-bold">Admin Panel</h2>
         <button onClick={() => openModal()} className="btn btn-primary">
           + Add New Staff

@@ -12,9 +12,9 @@ const HourPage = () => {
   }, [])
 
   return (
-    <div className="min-h-screen flex items-center justify-center w-full">
+    <div className="min-h-screen flex items-center justify-center w-full ">
       <div className="bg-black p-8 rounded-2xl shadow-xl">
-        <div className="text-4xl font-bold tracking-widest bg-black px-6 py-4 rounded-lg shadow-inner">
+        <div className="text-4xl font-bold tracking-widest  px-6 py-4 rounded-lg shadow-inner bg-base-100 text-base-content">
           {time.toLocaleTimeString()}
         </div>
       </div>

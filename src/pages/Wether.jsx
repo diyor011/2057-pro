@@ -5,13 +5,13 @@ const Weather = () => {
     <div className="w-full min-h-screen bg-gradient-to-br from-[#0D1B3D] via-[#1E3A5F] to-[#2B5876] text-white p-6 flex flex-col items-center">
       
       <div className="text-center mt-6">
-        <h2 className="text-sm tracking-widest opacity-70 uppercase">Uzbekistan</h2>
+        <h2 className="text-sm tracking-widest opacity-70 uppercase  text-base-content ">Uzbekistan</h2>
 
         <h1 className="text-[120px] font-light leading-none drop-shadow-2xl">
           12°
         </h1>
 
-        <p className="opacity-80 text-lg -mt-3">Feels like 8°</p>
+        <p className="opacity-80 text-lg -mt-3  text-base-content">Feels like 8°</p>
 
         <div className="mt-2 text-sm opacity-70">
           <span>Max 12°</span> • <span>Min 9°</span>
@@ -20,11 +20,11 @@ const Weather = () => {
 
       <div className="mt-8 bg-white/10 backdrop-blur-2xl shadow-xl border border-white/20 rounded-3xl p-6 w-full max-w-lg">
         <p className="text-sm opacity-80">
-          Expected rain around <span className="font-semibold">17:00</span>.  
-          Lowest feel-like temp was <span className="font-semibold">7°</span> at 13:00.
+          Expected rain around <span className="font-semibold  text-base-content">17:00</span>.  
+          Lowest feel-like temp was <span className="font-semibold  text-base-content">7°</span> at 13:00.
         </p>
 
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between mt-6  text-base-content">
           {[
             ["Now", "☁️", "12°"],
             ["14", "🌥", "11°"],

@@ -77,6 +77,7 @@ export default function TodoList() {
 
         <div style={{ display: "flex", gap: "10px" }}>
           <input
+          bg-base-100 text-base-content
             value={task}
             onChange={(e) => setTask(e.target.value)}
             placeholder="Введите задачу..."
@@ -94,6 +95,7 @@ export default function TodoList() {
           <button
             onClick={addTask}
             style={{
+              
               padding: "12px 20px",
               background: "#5a5cff",
               border: "none",
@@ -113,6 +115,7 @@ export default function TodoList() {
             <li
               key={item.id}
               style={{
+                
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
@@ -155,7 +158,7 @@ export default function TodoList() {
         </ul>
 
         {list.length === 0 && (
-          <p style={{ textAlign: "center", marginTop: "10px", color: "#aaa" }}>
+          <p className="bg-base-100 text-base-content" style={{ textAlign: "center", marginTop: "10px", color: "#aaa" }}>
             Список пуст 
           </p>
         )}

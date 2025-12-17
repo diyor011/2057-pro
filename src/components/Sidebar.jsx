@@ -17,9 +17,11 @@ const Sidebar = () => {
                     <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-base-200 h-full w-80 p-4">
                         {/* Sidebar content here */}
-<li ><Link to={'Hour'}> hourpage</Link></li>
-<li ><Link to={'todo'}> to do list</Link></li>
-                        <li><a>Sidebar Item 2</a></li>
+<li className='bg-base-100 text-base-content'><Link to={'hour'}> hourpage</Link></li>
+<li className='bg-base-100 text-base-content'><Link to={'todo'}> to do list</Link></li>
+<li className='bg-base-100 text-base-content'><Link to={'weather'}> weather</Link></li>
+<li className='bg-base-100 text-base-content'><Link to={'staff'}> staff</Link></li>
+
                     </ul>
                 </div>
             </div>
