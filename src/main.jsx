@@ -6,12 +6,28 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
+import Weather from "./pages/Wether.jsx";
+import TodoList from "./pages/Todolist.jsx";
+import HourPage from "./pages/HourPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    
+    children: [
+      {
+        path: "weather",
+        element : <Weather/>
+      },
+      {
+        path: "todo",
+        element : <TodoList/>
+      },
+      {
+        path: "hour",
+        element : <HourPage/>
+      }
+    ]
   },
 ]);
 
