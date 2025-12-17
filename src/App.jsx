@@ -1,8 +1,12 @@
 import React from 'react'
+import OrderList from './assets/componet/OrderList'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <OrderList />
+    </div>
+
   )
 }
 
