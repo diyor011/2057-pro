@@ -16,16 +16,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div className="min-h-screen w-full text-base-100">
 
-      <div className="navbar bg-base-100 shadow-xl backdrop-blur-md bg-opacity-20 border-b border-white/10">
-        <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-2xl font-semibold text-white">
-            My Todo list
-          </a>
-        </div>
-      </div>
-
+    
   
       <div className="max-w-md mx-auto mt-14 p-6 bg-white/10 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 transition">
         <h2 className="text-2xl font-bold mb-4 text-center">Todo List</h2>
