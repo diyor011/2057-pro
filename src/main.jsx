@@ -8,6 +8,8 @@ import TodoList from "./pages/Todolist.jsx";
 import HourPage from "./pages/HourPage.jsx";
 import StaffTable from "./components/StaffTable.jsx"
 import CurrencyConverter from "./pages/CurrencyConverter.jsx";
+import OrderList from "./components/OrderList.jsx";
+import Product from "./pages/Product.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
       {
         path:"converter",
         element: <CurrencyConverter/>
+      },
+      {
+        path: "orderlist",
+        element : <OrderList/>
+      },
+      {
+        path: "product",
+        element : <Product/>
       }
     ]
   },
