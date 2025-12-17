@@ -7,6 +7,7 @@ import Weather from "./pages/Wether.jsx";
 import TodoList from "./pages/Todolist.jsx";
 import HourPage from "./pages/HourPage.jsx";
 import StaffTable from "./components/StaffTable.jsx"
+import CurrencyConverter from "./pages/CurrencyConverter.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
        {
         path: "staff",
         element : <StaffTable/>
+      },
+      {
+        path:"converter",
+        element: <CurrencyConverter/>
       }
     ]
   },

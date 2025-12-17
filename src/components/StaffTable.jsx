@@ -7,7 +7,7 @@ import muhammadali from "../assets/muhammadali.jpg";
 import sarvar from "../assets/sarvar.jpg";
 import ibrohim from "../assets/ibrohim.jpg";
 import muhammadamin from "../assets/muhammadamin.jpg";
-
+import miraziz from "../assets/miraziz.jpg";
 const initialStaff = [
   {
     name: "Diyor",
@@ -54,6 +54,13 @@ const initialStaff = [
     description:
       "Loyihalarni boshqarish va muddatlarda yetkazib berish uchun mas'ul.",
     image: muhammadamin,
+  },
+  {
+    name: "Miraziz",
+    position: "Project Manager",
+    description:
+      "Loyihalarni boshqarish va muddatlarda yetkazib berish uchun mas'ul.",
+    image: miraziz,
   },
 ];
 
