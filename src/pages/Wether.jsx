@@ -1,80 +1,112 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Weather = () => {
+  const [weather, setWeather] = useState(null);
+
+  const API_KEY = "675c5848def249d0bbe91241251712";
+  const CITY = "Tashkent";
+
+  useEffect(() => {
+    fetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${CITY}&days=3&lang=ru`
+    )
+      .then((res) => res.json())
+      .then((data) => setWeather(data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  if (!weather) {
+    return (
+      <div className="w-full min-h-screen flex items-center justify-center text-white">
+        Loading...
+      </div>
+    );
+  }
+
+  const current = weather.current;
+  const forecast = weather.forecast.forecastday[0];
+
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-[#0D1B3D] via-[#1E3A5F] to-[#2B5876] text-white p-6 flex flex-col items-center">
       
       <div className="text-center mt-6">
-        <h2 className="text-sm tracking-widest opacity-70 uppercase">Uzbekistan</h2>
+        <h2 className="text-sm tracking-widest opacity-70 uppercase">
+          {weather.location.country}
+        </h2>
 
         <h1 className="text-[120px] font-light leading-none drop-shadow-2xl">
-          12°
+          {Math.round(current.temp_c)}°
         </h1>
 
-        <p className="opacity-80 text-lg -mt-3">Feels like 8°</p>
+        <p className="opacity-80 text-lg -mt-3">
+          Feels like {Math.round(current.feelslike_c)}°
+        </p>
 
         <div className="mt-2 text-sm opacity-70">
-          <span>Max 12°</span> • <span>Min 9°</span>
+          <span>Max {Math.round(forecast.day.maxtemp_c)}°</span> •{" "}
+          <span>Min {Math.round(forecast.day.mintemp_c)}°</span>
         </div>
       </div>
 
       <div className="mt-8 bg-white/10 backdrop-blur-2xl shadow-xl border border-white/20 rounded-3xl p-6 w-full max-w-lg">
         <p className="text-sm opacity-80">
-          Expected rain around <span className="font-semibold">17:00</span>.  
-          Lowest feel-like temp was <span className="font-semibold">7°</span> at 13:00.
+          {current.condition.text}
         </p>
 
         <div className="flex justify-between mt-6">
-          {[
-            ["Now", "☁️", "12°"],
-            ["14", "🌥", "11°"],
-            ["15", "☁️", "11°"],
-            ["16", "🌥", "10°"],
-            ["16:53", "🌅", "-"],
-            ["17", "🌧", "9°"],
-          ].map(([time, icon, temp]) => (
+          {forecast.hour.slice(0, 6).map((hour) => (
             <div
-              key={time}
+              key={hour.time}
               className="flex flex-col items-center text-sm hover:scale-110 transition"
             >
-              <span className="opacity-70">{time}</span>
-              <span className="text-2xl my-1">{icon}</span>
-              <span className="opacity-90">{temp}</span>
+              <span className="opacity-70">
+                {hour.time.split(" ")[1]}
+              </span>
+              <img
+                src={hour.condition.icon}
+                alt=""
+                className="w-8 h-8 my-1"
+              />
+              <span className="opacity-90">
+                {Math.round(hour.temp_c)}°
+              </span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Forecast 10 days */}
+      {/* Forecast */}
       <div className="mt-6 bg-white/10 backdrop-blur-2xl shadow-xl border border-white/20 rounded-3xl p-5 w-full max-w-lg">
-        <h3 className="text-xl font-semibold mb-3">10-day forecast</h3>
+        <h3 className="text-xl font-semibold mb-3">3-day forecast</h3>
 
-        {[
-          ["Today", 9, 12, "70%", "🌧"],
-          ["Sat", 6, 10, "85%", "🌧"],
-          ["Sun", 6, 16, "90%", "⛈"],
-        ].map(([day, min, max, rain, icon]) => (
+        {weather.forecast.forecastday.map((day) => (
           <div
-            key={day}
+            key={day.date}
             className="flex items-center justify-between py-3 border-b border-white/10 last:border-none"
           >
-            <span className="w-24">{day}</span>
+            <span className="w-24">
+              {new Date(day.date).toLocaleDateString("en-US", {
+                weekday: "short",
+              })}
+            </span>
 
-            <span className="text-2xl">{icon}</span>
+            <img src={day.day.condition.icon} alt="" className="w-8" />
 
             <div className="flex-1 mx-4">
               <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-white/70 rounded-full"
-                  style={{ width: `${(min / max) * 60}%` }}
+                  style={{ width: "60%" }}
                 ></div>
               </div>
             </div>
 
-            <span>{min}°</span>
-            <span>{max}°</span>
+            <span>{Math.round(day.day.mintemp_c)}°</span>
+            <span>{Math.round(day.day.maxtemp_c)}°</span>
 
-            <span className="text-sm opacity-70 ml-2">{rain}</span>
+            <span className="text-sm opacity-70 ml-2">
+              {day.day.daily_chance_of_rain}%
+            </span>
           </div>
         ))}
       </div>
