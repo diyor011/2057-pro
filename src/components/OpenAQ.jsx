@@ -1,49 +1,32 @@
-import { useEffect, useState } from "react";
+import React, { useState } from 'react'
+import { useEffect } from 'react';
 
-function OpenAQ() {
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const OpenAQ = () => {
+  const [air, setAir] = useState([]);
+  const getAir = async () => {
+    try {
 
-  useEffect(() => {
-    fetch("http://localhost:3001/api/openaq/latest")
-      .then(res => {
-        if (!res.ok) throw new Error("API error");
-        return res.json();
-      })
-      .then(json => {
-        console.log("API Response:", json); // Let's see what we get
-        setResults(json.results ?? []);
-      })
-      .catch(err => {
-        console.error(err);
-        setError("Failed to load data");
-      })
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-
-  if (results.length === 0) {
-    return <p>No air quality data available for Tashkent.</p>;
+      const res = await fetch(`https://api.openaq.org/v3/locations?city=Tashkent  `, {
+        method: 'GET',
+        headers: {
+          "X-API-Key": "cd0116c4806c245e2d81feff608c9af6dad186845edd8810933d446534223ec8"
+        }
+      });
+      const data = await res.json();
+      setAir(data.results);
+      console.log(data.results);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
+  useEffect(() => {
+    getAir()
+  }, [])
+
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Air Quality in Tashkent</h2>
-      {results.map((loc, index) => (
-        <div key={loc.id ?? index} className="mb-4 p-4 border rounded">
-          <h4 className="font-semibold">{loc.location}</h4>
-          <p>Parameter: {loc.parameter}</p>
-          <p>Value: {loc.value} {loc.unit}</p>
-          <p className="text-sm text-gray-600">
-            Last updated: {new Date(loc.lastUpdated).toLocaleString()}
-          </p>
-        </div>
-      ))}
-    </div>
-  );
+    <div>OpenAQ</div>
+  )
 }
 
-export default OpenAQ;
+export default OpenAQ

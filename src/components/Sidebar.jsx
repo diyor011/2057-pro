@@ -23,6 +23,7 @@ const Sidebar = () => {
                         <Link to="/staff"><li>Staff Table</li></Link>
                         <Link to="/todo"><li>Todo List</li></Link>
                         <Link to="/weather"><li>Weather</li></Link>
+                         <Link to="/orderlist"><li>OrderList</li></Link>
                         
                     </ul>
                 </div>
