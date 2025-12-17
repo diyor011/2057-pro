@@ -32,25 +32,17 @@ const Weather = () => {
     <div className="w-full min-h-screen bg-gradient-to-br from-[#0D1B3D] via-[#1E3A5F] to-[#2B5876] text-white p-6 flex flex-col items-center">
       
       <div className="text-center mt-6">
-<<<<<<< HEAD
-        <h2 className="text-sm tracking-widest opacity-70 uppercase  text-base-content ">Uzbekistan</h2>
-=======
         <h2 className="text-sm tracking-widest opacity-70 uppercase">
           {weather.location.country}
         </h2>
->>>>>>> 0e4e2f0d57e4a72218eec37847b98994f3159a46
 
         <h1 className="text-[120px] font-light leading-none drop-shadow-2xl">
           {Math.round(current.temp_c)}°
         </h1>
 
-<<<<<<< HEAD
-        <p className="opacity-80 text-lg -mt-3  text-base-content">Feels like 8°</p>
-=======
         <p className="opacity-80 text-lg -mt-3">
           Feels like {Math.round(current.feelslike_c)}°
         </p>
->>>>>>> 0e4e2f0d57e4a72218eec37847b98994f3159a46
 
         <div className="mt-2 text-sm opacity-70">
           <span>Max {Math.round(forecast.day.maxtemp_c)}°</span> •{" "}
@@ -60,27 +52,11 @@ const Weather = () => {
 
       <div className="mt-8 bg-white/10 backdrop-blur-2xl shadow-xl border border-white/20 rounded-3xl p-6 w-full max-w-lg">
         <p className="text-sm opacity-80">
-<<<<<<< HEAD
-          Expected rain around <span className="font-semibold  text-base-content">17:00</span>.  
-          Lowest feel-like temp was <span className="font-semibold  text-base-content">7°</span> at 13:00.
-        </p>
-
-        <div className="flex justify-between mt-6  text-base-content">
-          {[
-            ["Now", "☁️", "12°"],
-            ["14", "🌥", "11°"],
-            ["15", "☁️", "11°"],
-            ["16", "🌥", "10°"],
-            ["16:53", "🌅", "-"],
-            ["17", "🌧", "9°"],
-          ].map(([time, icon, temp]) => (
-=======
           {current.condition.text}
         </p>
 
         <div className="flex justify-between mt-6">
           {forecast.hour.slice(0, 6).map((hour) => (
->>>>>>> 0e4e2f0d57e4a72218eec37847b98994f3159a46
             <div
               key={hour.time}
               className="flex flex-col items-center text-sm hover:scale-110 transition"
