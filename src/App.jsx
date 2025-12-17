@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <Navbar/>
         <section className='flex h-fullr w-full '>
-
+        
              <Sidebar/>
                <Outlet/>
         </section>
