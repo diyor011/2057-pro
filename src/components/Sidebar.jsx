@@ -24,6 +24,7 @@ const Sidebar = () => {
                         <Link to="/todo"><li>Todo List</li></Link>
                         <Link to="/weather"><li>Weather</li></Link>
                          <Link to="/orderlist"><li>OrderList</li></Link>
+                          <Link to="/product"><li>Product</li></Link>
                         
                     </ul>
                 </div>

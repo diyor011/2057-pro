@@ -2,9 +2,9 @@ import React from 'react'
 import Navbar from './components/Navbar.jsx'
 import Sidebar from './components/Sidebar'
 import { Outlet } from 'react-router-dom'
-import OpenAQ from './components/OpenAQ.jsx'
 
-import OrderList from './components/OrderList.jsx'
+
+
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
              <Sidebar/>
                <Outlet/>
         </section>
-        <OpenAQ />
+    
              
 
      

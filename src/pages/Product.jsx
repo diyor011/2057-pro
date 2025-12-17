@@ -6,7 +6,7 @@ const Product = () => {
         try {
             const response = await fetch("https://dummyjson.com/product")
             const data = await response.json()
-            setProduct(data.product)
+            setProduct(data.products)
 
         } catch (err) {
             console.error(err);
