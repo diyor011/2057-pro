@@ -5,7 +5,6 @@ import { Outlet } from 'react-router-dom'
 
 
 
-
 const App = () => {
   return (
     <div>
@@ -15,7 +14,7 @@ const App = () => {
              <Sidebar/>
                <Outlet/>
         </section>
-    
+ 
              
 
      

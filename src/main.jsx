@@ -10,6 +10,7 @@ import StaffTable from "./components/StaffTable.jsx"
 import CurrencyConverter from "./pages/CurrencyConverter.jsx";
 import OrderList from "./components/OrderList.jsx";
 import Product from "./pages/Product.jsx";
+import OpenAQ from "./components/OpenAQ.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "product",
         element : <Product/>
+      },
+      {
+        path: "air",
+        element: <OpenAQ />
       }
     ]
   },
