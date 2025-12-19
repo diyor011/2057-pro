@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div>
       <Navbar/>
-        <section className='flex h-fullr w-full '>
+        <section className='flex h-full w-full '>
 
              <Sidebar/>
                <Outlet/>
